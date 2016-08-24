@@ -1,0 +1,29 @@
+{
+  "name": "ttn-storagehandler",
+  "version": "1.0.0",
+  "description": "The Things Network Storage Handler",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.14.0",
+    "socket.io": "^1.4.6",
+    "ttn": "^1.1.1",
+    "sqlite3": "^3.0.8",
+    "base-64": "^0.1.0",
+    "waterline": "^0.12.2",
+    "sails-disk" : "^0.10.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eliatrope38/ttn-storagehandler.git"
+  },
+  "author": "David Dugois <ddugois@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eliatrope38/ttn-storagehandler/issues"
+  },
+  "homepage": "https://github.com/eliatrope38/ttn-storagehandler#readme"
+}
