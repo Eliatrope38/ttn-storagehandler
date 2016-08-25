@@ -7,7 +7,8 @@
     "ttn": "^1.1.1",
     "base-64": "^0.1.0",
     "waterline": "^0.12.2",
-    "sails-disk" : "^0.10.0"
+    "sails-disk" : "^0.10.0",
+    "sails-mysql" : "^0.12.2"
   },
   "devDependencies": {},
   "scripts": {

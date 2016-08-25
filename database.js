@@ -1,6 +1,11 @@
-// database management for Storing all LoraWan Frame in Raw mode
+var config = require('./config');
+
 var Waterline = require('waterline');
-var sailsMemoryAdapter = require('sails-disk');
+
+
+// Require any waterline compatible adapters here
+var diskAdapter = require('sails-disk'),
+    mysqlAdapter = require('sails-mysql');
 
 // Create the waterline instance.
 var waterline = new Waterline();
@@ -9,7 +14,7 @@ var Msg;
 // Create a specification for a Message model.
 var msgCollection = Waterline.Collection.extend({
 	identity: 'msg',
-	connection: 'default',
+	connection: 'myLocalMySql',
 	attributes: {
 		counter: 'integer',
 		gateway: 'string',
@@ -24,17 +29,34 @@ var msgCollection = Waterline.Collection.extend({
 
 waterline.loadCollection(msgCollection);
 
-// Set up the storage configuration for waterline.
+// Build A Config Object
 var config = {
-	adapters: {
-		'memory': sailsMemoryAdapter
-	},
+  // Setup Adapters
+  // Creates named adapters that have have been required
+  adapters: {
+    'default': mysqlAdapter,
+    disk: diskAdapter,
+    mysql: mysqlAdapter
+  },
 
-	connections: {
-		default: {
-			adapter: 'memory'
-		}
-	}
+  // Build Connections Config
+  // Setup connections using the named adapter configs
+  connections: {
+    myLocalDisk: {
+      adapter: 'disk'
+    },
+
+    myLocalMySql: {
+		 adapter : 'mysql',
+		 module    : 'sails-mysql',
+     host      : config.DB_HOST,
+     port      : 3306,
+     user      : config.DB_USER,
+     password  : config.DB_PWD,
+     database  : 'msgcollection'
+    }
+  }
+
 };
 
 // Initialise the waterline instance.

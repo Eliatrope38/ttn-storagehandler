@@ -1,10 +1,12 @@
 var base64 = require('base-64');
 var db = require('./database.js');
+var config = require('./config');
+
 var fs = require('fs');
 var ttn = require('ttn');
 
-var appEUI = 'YOUR appEUI';
-var appKey = 'YOUR appKey';
+var appEUI = config.TTN_APPEUI;
+var appKey = config.TTN_APPKEY;
 
 
 

@@ -15,7 +15,8 @@ First version use a sails-disk adapter but we will evolve to mongoDB and MySQL i
   npm install
 ```
 
-  Change AppEUI and appKey in server.js
+  Rename config.bak.js in config.js and Change parameter with you information
+  
 
 ```
   npm Start

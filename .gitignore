@@ -60,6 +60,7 @@ node_modules
 
 jspm_packages
 .tmp
+config.js
 
 
 
