@@ -5,7 +5,7 @@ var Waterline = require('waterline');
 
 // Require any waterline compatible adapters here
 var diskAdapter = require('sails-disk'),
-    mysqlAdapter = require('sails-mysql');
+    mysqlAdapter = require('sails-mysql'),
     mongoAdapter = require('sails-mongo');
 // Create the waterline instance.
 var waterline = new Waterline();
@@ -55,7 +55,7 @@ var config = {
      user      : config.DB_USER,
      password  : config.DB_PWD,
      database  : 'msgcollection'
-    }
+   },
 
     myLocalMongo:{
       adapter: 'mongo',
