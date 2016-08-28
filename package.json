@@ -4,11 +4,12 @@
   "description": "The Things Network Storage Handler",
   "main": "server.js",
   "dependencies": {
-    "ttn": "^1.1.1",
     "base-64": "^0.1.0",
-    "waterline": "^0.12.2",
-    "sails-disk" : "^0.10.0",
-    "sails-mysql" : "^0.12.2"
+    "sails-disk": "^0.10.0",
+    "sails-mongo": "^0.12.1",
+    "sails-mysql": "^0.12.2",
+    "ttn": "^1.1.1",
+    "waterline": "^0.12.2"
   },
   "devDependencies": {},
   "scripts": {

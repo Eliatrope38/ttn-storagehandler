@@ -16,12 +16,12 @@ First version use a sails-disk adapter but we will evolve to mongoDB and MySQL i
 ```
 
   Rename config.bak.js in config.js and Change parameter with you information
-  
+
 
 ```
   npm Start
 ```
 ##TODO
 
-  * Multi Database support mongoDB, MySQL
   * Add SocketIO support for real time apps
+  * Add SSL/TLS Support

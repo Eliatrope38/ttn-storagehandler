@@ -6,7 +6,7 @@ var Waterline = require('waterline');
 // Require any waterline compatible adapters here
 var diskAdapter = require('sails-disk'),
     mysqlAdapter = require('sails-mysql');
-
+    mongoAdapter = require('sails-mongo');
 // Create the waterline instance.
 var waterline = new Waterline();
 var Msg;
@@ -14,7 +14,7 @@ var Msg;
 // Create a specification for a Message model.
 var msgCollection = Waterline.Collection.extend({
 	identity: 'msg',
-	connection: 'myLocalMySql',
+	connection: 'myLocalMongo',
 	attributes: {
 		counter: 'integer',
 		gateway: 'string',
@@ -34,9 +34,10 @@ var config = {
   // Setup Adapters
   // Creates named adapters that have have been required
   adapters: {
-    'default': mysqlAdapter,
+    'default': mongoAdapter,
     disk: diskAdapter,
-    mysql: mysqlAdapter
+    mysql: mysqlAdapter,
+    mongo:mongoAdapter
   },
 
   // Build Connections Config
@@ -54,6 +55,16 @@ var config = {
      user      : config.DB_USER,
      password  : config.DB_PWD,
      database  : 'msgcollection'
+    }
+
+    myLocalMongo:{
+      adapter: 'mongo',
+      module:'sails-mongo',
+      host: config.DB_HOST, // defaults to `localhost` if omitted
+      port: 27017, // defaults to 27017 if omitted
+      user: config.DB_USER, // or omit if not relevant
+      password: config.DB_PWD, // or omit if not relevant
+      database: 'msgcollection' // or omit if not relevant
     }
   }
 
